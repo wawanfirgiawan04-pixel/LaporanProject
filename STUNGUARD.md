@@ -10,7 +10,6 @@ Aplikasi ini mendukung pemeriksaan:
 - Berat Badan menurut Panjang/Tinggi Badan (BB/PB atau BB/TB)
 - BMI menurut Umur (BMI/U)
 
-======================================================================
 TUJUAN APLIKASI
 ======================================================================
 
