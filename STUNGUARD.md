@@ -10,7 +10,6 @@ Aplikasi ini mendukung pemeriksaan:
 - Berat Badan menurut Panjang/Tinggi Badan (BB/PB atau BB/TB)
 - BMI menurut Umur (BMI/U)
 
-======================================================================
 TUJUAN APLIKASI
 ======================================================================
 
@@ -20,7 +19,6 @@ TUJUAN APLIKASI
 4. Menyediakan aplikasi antropometri offline.
 5. Mengimplementasikan perhitungan Z-score WHO.
 
-======================================================================
 TEKNOLOGI YANG DIGUNAKAN
 ======================================================================
 
@@ -32,7 +30,6 @@ TEKNOLOGI YANG DIGUNAKAN
 | CSV Dataset | Standar Antropometri WHO |
 | Math | Perhitungan Z-score |
 
-======================================================================
 STANDAR KEMENTERIAN KESEHATAN REPUBLIK INDONESIA
 ======================================================================
 
@@ -45,7 +42,6 @@ Standar Antropometri Anak
 
 Standar ini mengadopsi WHO Child Growth Standards untuk anak usia 0–60 bulan.
 
-======================================================================
 RUMUS Z-SCORE
 ======================================================================
 
@@ -61,7 +57,6 @@ Keterangan:
 | Median Referensi | Nilai median WHO |
 | Simpangan Baku Referensi | Standar deviasi WHO |
 
-======================================================================
 RUMUS BMI
 ======================================================================
 
@@ -73,7 +68,6 @@ BMI = 12 / (0.75)^2
 
 BMI = 21.33
 
-======================================================================
 KATEGORI DAN AMBANG BATAS STATUS GIZI ANAK
 (BERDASARKAN PMK NO. 2 TAHUN 2020)
 ======================================================================
@@ -128,7 +122,6 @@ KATEGORI DAN AMBANG BATAS STATUS GIZI ANAK
 | +2 SD sampai +3 SD | Gizi Lebih |
 | > +3 SD | Obesitas |
 
-======================================================================
 CONTOH DATA STANDAR ANTROPOMETRI KEMENKES
 ======================================================================
 
@@ -194,7 +187,6 @@ ANAK PEREMPUAN USIA 24 BULAN
 | +2 SD | 21.9 |
 | +3 SD | 24.8 |
 
-======================================================================
 CONTOH PERHITUNGAN MANUAL
 ======================================================================
 
@@ -208,7 +200,6 @@ KASUS:
 | Berat Badan | 12 kg |
 | Tinggi Badan | 75 cm |
 
-======================================================================
 1. BERAT BADAN MENURUT UMUR (BB/U)
 ======================================================================
 
@@ -231,7 +222,6 @@ Z-score = 0.36
 Interpretasi:
 - Status = Normal
 
-======================================================================
 2. TINGGI BADAN MENURUT UMUR (TB/U)
 ======================================================================
 
@@ -254,7 +244,6 @@ Z-score = -3.61
 Interpretasi:
 - Status = Sangat Pendek (Severely Stunted)
 
-======================================================================
 3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
 ======================================================================
 
@@ -277,7 +266,6 @@ Z-score = 2.89
 Interpretasi:
 - Status = Gizi Lebih
 
-======================================================================
 4. BMI MENURUT UMUR (BMI/U)
 ======================================================================
 
@@ -322,7 +310,6 @@ Z-score = 3.55
 Interpretasi:
 - Status = Obesitas
 
-======================================================================
 KESIMPULAN AKHIR STATUS GIZI
 ======================================================================
 
@@ -339,7 +326,6 @@ Kesimpulan:
 - BMI menunjukkan obesitas.
 - Kondisi ini dapat dikategorikan sebagai stunted obesity, yaitu anak pendek tetapi mengalami berat badan berlebih.
 
-======================================================================
 STRUKTUR DATASET
 ======================================================================
 
@@ -357,49 +343,6 @@ dataset/
 │   ├── wfl.csv
 │   └── bmifa.csv
 
-======================================================================
-INSTALASI
-======================================================================
-
-Install library:
-
-pip install PySide6 pandas
-
-======================================================================
-MENJALANKAN PROGRAM
-======================================================================
-
-python main.py
-
-======================================================================
-FITUR APLIKASI
-======================================================================
-
-- Perhitungan Z-score WHO
-- Offline Mode
-- GUI Interface
-- BMI Calculator
-- BB/U
-- TB/U
-- BB/TB
-- BMI/U
-- Skrining Stunting
-- Skrining Obesitas
-- Status Gizi Anak
-
-======================================================================
-PENGEMBANGAN SELANJUTNYA
-======================================================================
-
-- Export PDF
-- Grafik Pertumbuhan WHO
-- Database SQLite
-- Android Version
-- Integrasi Posyandu
-- Multi-language Support
-
-======================================================================
-REFERENSI
 ======================================================================
 
 1. World Health Organization (WHO). WHO Child Growth Standards.
