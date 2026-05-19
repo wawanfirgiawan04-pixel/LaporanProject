@@ -187,7 +187,6 @@ ANAK PEREMPUAN USIA 24 BULAN
 | +2 SD | 21.9 |
 | +3 SD | 24.8 |
 
-======================================================================
 
 CONTOH PERHITUNGAN MANUAL
 ======================================================================
@@ -202,8 +201,7 @@ KASUS:
 | Berat Badan | 12 kg |
 | Tinggi Badan | 75 cm |
 
-1. BERAT BADAN MENURUT UMUR (BB/U)
-======================================================================
+#### BERAT BADAN MENURUT UMUR (BB/U)
 
 Data Referensi:
 - Median = 11.5 kg
@@ -224,8 +222,7 @@ Z-score = 0.36
 Interpretasi:
 - Status = Normal
 
-2. TINGGI BADAN MENURUT UMUR (TB/U)
-======================================================================
+#### TINGGI BADAN MENURUT UMUR (TB/U)
 
 Data Referensi:
 - Median = 85.1 cm
@@ -246,8 +243,7 @@ Z-score = -3.61
 Interpretasi:
 - Status = Sangat Pendek (Severely Stunted)
 
-3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
-======================================================================
+#### BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
 
 Data Referensi:
 - Median = 9.4 kg
@@ -268,8 +264,7 @@ Z-score = 2.89
 Interpretasi:
 - Status = Gizi Lebih
 
-4. BMI MENURUT UMUR (BMI/U)
-======================================================================
+#### BMI MENURUT UMUR (BMI/U)
 
 Langkah 1 — Menghitung BMI
 
