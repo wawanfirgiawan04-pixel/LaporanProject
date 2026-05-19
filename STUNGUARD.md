@@ -1,382 +1,525 @@
-````markdown id="u5yl1k"
-# STUNGUARD
-## Aplikasi Kalkulator Antropometri Berbasis WHO LMS untuk Anak Usia 0–60 Bulan
+======================================================================
+STANDAR KEMENTERIAN KESEHATAN REPUBLIK INDONESIA
+================================================
+
+Penilaian status gizi anak pada aplikasi STUNGUARD menggunakan acuan:
+
+Peraturan Menteri Kesehatan Republik Indonesia (PMK)
+Nomor 2 Tahun 2020
+Tentang:
+Standar Antropometri Anak
+
+Standar ini mengadopsi WHO Child Growth Standards untuk anak usia 0–60 bulan.
+
+======================================================================
+KATEGORI DAN AMBANG BATAS STATUS GIZI ANAK
+(BERDASARKAN PMK NO. 2 TAHUN 2020)
+==================================
+
+1. BERAT BADAN MENURUT UMUR (BB/U)
 
 ---
 
-# 1. Gambaran Umum Proyek
-
-STUNGUARD merupakan aplikasi antropometri offline yang dirancang untuk menghitung status gizi dan pertumbuhan anak usia 0–60 bulan menggunakan standar WHO Child Growth Standards dan metode LMS (Lambda-Mu-Sigma).
-
-Aplikasi ini berfokus pada:
-- Berat Badan menurut Umur (BB/U)
-- Panjang/Tinggi Badan menurut Umur (PB/U atau TB/U)
-- Berat Badan menurut Panjang/Tinggi Badan (BB/PB atau BB/TB)
-- BMI menurut Umur (BMI/U)
-
-Aplikasi menghitung Z-score berdasarkan standar WHO dan mengklasifikasikan status gizi seperti:
-- Normal
-- Gizi Kurang
-- Stunting
-- Severely Stunted
-- Overweight
-- Obesitas
+| Z-Score              | Status Gizi               |
+| -------------------- | ------------------------- |
+| < -3 SD              | Berat Badan Sangat Kurang |
+| -3 SD sampai < -2 SD | Berat Badan Kurang        |
+| -2 SD sampai +1 SD   | Normal                    |
+| > +1 SD              | Risiko Berat Badan Lebih  |
 
 ---
 
-# 2. Tujuan Proyek
-
-Tujuan utama STUNGUARD adalah:
-
-1. Menyediakan aplikasi antropometri offline.
-2. Membantu deteksi dini stunting dan malnutrisi.
-3. Mengimplementasikan metode LMS WHO.
-4. Mendukung skrining Posyandu dan Puskesmas.
-5. Menyediakan perhitungan antropometri yang kompatibel dengan WHO Anthro.
+2. PANJANG/TINGGI BADAN MENURUT UMUR (PB/U atau TB/U)
 
 ---
 
-# 3. Teknologi yang Digunakan
-
-| Teknologi | Fungsi |
-|---|---|
-| Python | Bahasa Pemrograman Utama |
-| PySide6 | Framework GUI |
-| Pandas | Pemrosesan Dataset CSV |
-| Math | Perhitungan LMS |
-| Dataset WHO LMS | Standar Antropometri |
+| Z-Score              | Status Gizi                      |
+| -------------------- | -------------------------------- |
+| < -3 SD              | Sangat Pendek (Severely Stunted) |
+| -3 SD sampai < -2 SD | Pendek (Stunted)                 |
+| -2 SD sampai +3 SD   | Normal                           |
+| > +3 SD              | Tinggi                           |
 
 ---
 
-# 4. Indikator Antropometri
-
-## 4.1 Berat Badan menurut Umur (BB/U)
-
-Mengukur berat badan berdasarkan usia anak.
-
-### Interpretasi
-
-| Z-Score | Klasifikasi |
-|---|---|
-| < -3 SD | Berat Badan Sangat Kurang |
-| -3 SD sampai < -2 SD | Berat Badan Kurang |
-| -2 SD sampai +1 SD | Normal |
-| > +1 SD | Risiko Berat Badan Lebih |
+3. BERAT BADAN MENURUT PANJANG/TINGGI BADAN (BB/PB atau BB/TB)
 
 ---
 
-## 4.2 Panjang/Tinggi Badan menurut Umur (PB/U atau TB/U)
-
-Mengukur panjang atau tinggi badan berdasarkan usia anak.
-
-### Interpretasi
-
-| Z-Score | Klasifikasi |
-|---|---|
-| < -3 SD | Sangat Pendek (Severely Stunted) |
-| -3 SD sampai < -2 SD | Pendek (Stunted) |
-| -2 SD sampai +3 SD | Normal |
-| > +3 SD | Tinggi |
+| Z-Score              | Status Gizi       |
+| -------------------- | ----------------- |
+| < -3 SD              | Gizi Buruk        |
+| -3 SD sampai < -2 SD | Gizi Kurang       |
+| -2 SD sampai +1 SD   | Normal            |
+| +1 SD sampai +2 SD   | Risiko Gizi Lebih |
+| +2 SD sampai +3 SD   | Gizi Lebih        |
+| > +3 SD              | Obesitas          |
 
 ---
 
-## 4.3 Berat Badan menurut Panjang/Tinggi Badan (BB/PB atau BB/TB)
-
-Mengukur berat badan relatif terhadap panjang atau tinggi badan.
-
-### Interpretasi
-
-| Z-Score | Klasifikasi |
-|---|---|
-| < -3 SD | Gizi Buruk |
-| -3 SD sampai < -2 SD | Gizi Kurang |
-| -2 SD sampai +1 SD | Normal |
-| +1 SD sampai +2 SD | Risiko Gizi Lebih |
-| +2 SD sampai +3 SD | Gizi Lebih |
-| > +3 SD | Obesitas |
+4. BMI MENURUT UMUR (BMI/U)
 
 ---
 
-## 4.4 BMI menurut Umur (BMI/U)
+| Z-Score              | Status Gizi       |
+| -------------------- | ----------------- |
+| < -3 SD              | Gizi Buruk        |
+| -3 SD sampai < -2 SD | Gizi Kurang       |
+| -2 SD sampai +1 SD   | Normal            |
+| +1 SD sampai +2 SD   | Risiko Gizi Lebih |
+| +2 SD sampai +3 SD   | Gizi Lebih        |
+| > +3 SD              | Obesitas          |
 
-Mengukur Body Mass Index berdasarkan usia anak.
+======================================================================
+CONTOH DATA STANDAR ANTROPOMETRI KEMENKES
+=========================================
 
-### Interpretasi
-
-| Z-Score | Klasifikasi |
-|---|---|
-| < -3 SD | Gizi Buruk |
-| -3 SD sampai < -2 SD | Gizi Kurang |
-| -2 SD sampai +1 SD | Normal |
-| +1 SD sampai +2 SD | Risiko Gizi Lebih |
-| +2 SD sampai +3 SD | Gizi Lebih |
-| > +3 SD | Obesitas |
-
----
-
-# 5. Metode WHO LMS
-
-Aplikasi menggunakan metode LMS WHO.
-
-LMS terdiri dari:
-
-| Parameter | Penjelasan |
-|---|---|
-| L | Lambda (Transformasi Box-Cox) |
-| M | Median |
-| S | Koefisien Variasi |
+1. BERAT BADAN MENURUT UMUR (BB/U)
+   ANAK LAKI-LAKI USIA 24 BULAN
 
 ---
 
-# 6. Rumus WHO LMS
+| Parameter | Nilai   |
+| --------- | ------- |
+| -3 SD     | 8.6 kg  |
+| -2 SD     | 9.7 kg  |
+| -1 SD     | 10.8 kg |
+| Median    | 12.2 kg |
+| +1 SD     | 13.6 kg |
+| +2 SD     | 15.3 kg |
+| +3 SD     | 17.1 kg |
 
-Jika:
+---
 
-```math
-L ≠ 0
-````
+2. TINGGI BADAN MENURUT UMUR (TB/U)
+   ANAK PEREMPUAN USIA 24 BULAN
 
-Maka:
+---
 
-```math id="0f9d53"
-Z = \frac{\left(\frac{X}{M}\right)^L - 1}{L \times S}
-```
+| Parameter | Nilai   |
+| --------- | ------- |
+| -3 SD     | 76.0 cm |
+| -2 SD     | 80.0 cm |
+| -1 SD     | 82.5 cm |
+| Median    | 85.1 cm |
+| +1 SD     | 87.7 cm |
+| +2 SD     | 90.3 cm |
+| +3 SD     | 93.0 cm |
+
+---
+
+3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
+   ANAK PEREMPUAN TINGGI 75 CM
+
+---
+
+| Parameter | Nilai   |
+| --------- | ------- |
+| -3 SD     | 6.9 kg  |
+| -2 SD     | 7.7 kg  |
+| -1 SD     | 8.5 kg  |
+| Median    | 9.4 kg  |
+| +1 SD     | 10.4 kg |
+| +2 SD     | 11.5 kg |
+| +3 SD     | 12.8 kg |
+
+---
+
+4. BMI MENURUT UMUR (BMI/U)
+   ANAK PEREMPUAN USIA 24 BULAN
+
+---
+
+| Parameter | Nilai |
+| --------- | ----- |
+| -3 SD     | 12.5  |
+| -2 SD     | 13.8  |
+| -1 SD     | 15.0  |
+| Median    | 16.0  |
+| +1 SD     | 19.1  |
+| +2 SD     | 21.9  |
+| +3 SD     | 24.8  |
+
+======================================================================
+CONTOH PERHITUNGAN MANUAL KEMENKES
+==================================
+
+## KASUS:
+
+| Parameter     | Nilai     |
+| ------------- | --------- |
+| Jenis Kelamin | Perempuan |
+| Umur          | 24 bulan  |
+| Berat Badan   | 12 kg     |
+| Tinggi Badan  | 75 cm     |
+
+======================================================================
+
+1. BERAT BADAN MENURUT UMUR (BB/U)
+   ======================================================================
+
+Data Kemenkes:
+
+* Median = 11.5 kg
+* SD = 1.4 kg
+
+Rumus:
+
+Z = \frac{12 - 11.5}{1.4}
+
+Hasil:
+
+Z \approx 0.36
+
+Interpretasi:
+
+* Status = Normal
+
+======================================================================
+2. TINGGI BADAN MENURUT UMUR (TB/U)
+===================================
+
+Data Kemenkes:
+
+* Median = 85.1 cm
+* SD = 2.8 cm
+
+Rumus:
+
+Z = \frac{75 - 85.1}{2.8}
+
+Hasil:
+
+Z \approx -3.61
+
+Interpretasi:
+
+* Status = Sangat Pendek (Severely Stunted)
+
+======================================================================
+3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
+===========================================
+
+Data Kemenkes:
+
+* Median = 9.4 kg
+* SD = 0.9 kg
+
+Rumus:
+
+Z = \frac{12 - 9.4}{0.9}
+
+Hasil:
+
+Z \approx 2.89
+
+Interpretasi:
+
+* Status = Gizi Lebih
+
+======================================================================
+4. BMI MENURUT UMUR (BMI/U)
+===========================
+
+Langkah 1 — Menghitung BMI
+
+BMI = \frac{12}{0.75^2}
+
+Hasil:
+
+BMI \approx 21.33
+
+---
+
+Data Kemenkes:
+
+* Median BMI = 16.0
+* SD BMI = 1.5
+
+---
+
+Menghitung Z-score BMI/U
+
+Z = \frac{21.33 - 16.0}{1.5}
+
+Hasil:
+
+Z \approx 3.55
+
+Interpretasi:
+
+* Status = Obesitas
+
+======================================================================
+KESIMPULAN AKHIR STATUS GIZI
+============================
+
+| Indikator | Z-Score | Status        |
+| --------- | ------- | ------------- |
+| BB/U      | 0.36    | Normal        |
+| TB/U      | -3.61   | Sangat Pendek |
+| BB/TB     | 2.89    | Gizi Lebih    |
+| BMI/U     | 3.55    | Obesitas      |
+
+Kesimpulan:
+* Anak mengalami stunting berat berdasarkan TB/U.
+* Berat badan relatif berlebih terhadap tinggi badan.
+* BMI menunjukkan obesitas.
+* Kondisi ini dapat dikategorikan sebagai stunted obesity, yaitu anak pendek tetapi mengalami berat badan berlebih.
+=================================================================================================================================
+
+STUNGUARD menggunakan metode Z-Score WHO untuk menentukan status gizi anak berdasarkan perbandingan hasil pengukuran dengan standar antropometri WHO.
+
+Rumus utama yang digunakan adalah:
+
+Z-score = \frac{Nilai\ Pengukuran - Median\ Referensi}{Simpangan\ Baku\ Referensi}
 
 Keterangan:
 
-| Simbol | Penjelasan       |
-| ------ | ---------------- |
-| X      | Nilai Pengukuran |
-| L      | Lambda           |
-| M      | Median           |
-| S      | Simpangan Baku   |
+* Nilai Pengukuran = hasil pengukuran anak
+* Median Referensi = nilai median standar WHO
+* Simpangan Baku Referensi = standar deviasi WHO
+
+======================================================================
+
+1. BERAT BADAN MENURUT UMUR (BB/U)
+   ======================================================================
+
+Fungsi:
+Menentukan status berat badan anak berdasarkan usia.
 
 ---
 
-# 7. Rumus Ketika L = 0
+## Contoh Kasus
 
-Jika:
-
-```math id="w7f05v"
-L = 0
-```
-
-Maka:
-
-```math id="91b84r"
-Z = \frac{\ln(X/M)}{S}
-```
+Jenis Kelamin : Laki-laki
+Umur          : 24 bulan
+Berat Badan   : 10 kg
 
 ---
 
-# 8. Rumus BMI
+## Data Referensi WHO
 
-BMI dihitung menggunakan rumus:
+Usia 24 bulan (Laki-laki):
 
-```math id="xjzlm7"
-BMI = \frac{Berat\ Badan\ (kg)}{Tinggi\ Badan\ (m)^2}
-```
-
----
-
-# 9. Contoh Perhitungan Manual
-
-## Studi Kasus
-
-| Parameter           | Nilai      |
-| ------------------- | ---------- |
-| Jenis Kelamin       | Perempuan  |
-| Tanggal Lahir       | 17/05/2024 |
-| Tanggal Pemeriksaan | 17/05/2026 |
-| Berat Badan         | 12 kg      |
-| Tinggi Badan        | 75 cm      |
+* Median = 12.2 kg
+* SD      = 1.1 kg
 
 ---
 
-# 10. Langkah 1 — Menghitung Umur
-
-Usia anak:
-
-```text id="19bh3n"
-24 bulan
-```
-
----
-
-# 11. Langkah 2 — Menghitung BMI
+## Perhitungan Manual
 
 Rumus:
 
-```math id="o0h6zk"
+Z = \frac{10 - 12.2}{1.1}
+
+Hasil:
+
+Z = -2.0
+
+---
+
+## Interpretasi
+
+| Rentang Z-Score   | Status                    |
+| ----------------- | ------------------------- |
+| < -3 SD           | Berat Badan Sangat Kurang |
+| -3 SD s/d < -2 SD | Berat Badan Kurang        |
+| -2 SD s/d +1 SD   | Normal                    |
+| > +1 SD           | Risiko Berat Badan Lebih  |
+
+Hasil:
+
+* Z-score = -2.0
+* Status = Normal (batas bawah)
+
+======================================================================
+2. PANJANG/TINGGI BADAN MENURUT UMUR (PB/U atau TB/U)
+=====================================================
+
+Fungsi:
+Menentukan status stunting berdasarkan tinggi badan terhadap usia.
+
+---
+
+## Contoh Kasus
+
+Jenis Kelamin : Perempuan
+Umur          : 24 bulan
+Tinggi Badan  : 75 cm
+
+---
+
+## Data Referensi WHO
+
+Usia 24 bulan (Perempuan):
+
+* Median = 85.1 cm
+* SD      = 2.8 cm
+
+---
+
+## Perhitungan Manual
+
+Rumus:
+
+Z = \frac{75 - 85.1}{2.8}
+
+Hasil:
+
+Z \approx -3.61
+
+---
+
+## Interpretasi
+
+| Rentang Z-Score   | Status        |
+| ----------------- | ------------- |
+| < -3 SD           | Sangat Pendek |
+| -3 SD s/d < -2 SD | Pendek        |
+| -2 SD s/d +3 SD   | Normal        |
+| > +3 SD           | Tinggi        |
+
+Hasil:
+
+* Z-score ≈ -3.61
+* Status = Sangat Pendek (Severely Stunted)
+
+======================================================================
+3. BERAT BADAN MENURUT PANJANG/TINGGI BADAN (BB/PB atau BB/TB)
+==============================================================
+
+Fungsi:
+Menentukan status wasting atau overweight berdasarkan proporsi berat terhadap tinggi badan.
+
+---
+
+## Contoh Kasus
+
+Jenis Kelamin : Perempuan
+Tinggi Badan  : 75 cm
+Berat Badan   : 12 kg
+
+---
+
+## Data Referensi WHO
+
+Tinggi 75 cm (Perempuan):
+
+* Median = 9.4 kg
+* SD      = 0.9 kg
+
+---
+
+## Perhitungan Manual
+
+Rumus:
+
+Z = \frac{12 - 9.4}{0.9}
+
+Hasil:
+
+Z \approx 2.89
+
+---
+
+## Interpretasi
+
+| Rentang Z-Score   | Status            |
+| ----------------- | ----------------- |
+| < -3 SD           | Gizi Buruk        |
+| -3 SD s/d < -2 SD | Gizi Kurang       |
+| -2 SD s/d +1 SD   | Normal            |
+| +1 SD s/d +2 SD   | Risiko Gizi Lebih |
+| +2 SD s/d +3 SD   | Gizi Lebih        |
+| > +3 SD           | Obesitas          |
+
+Hasil:
+
+* Z-score ≈ 2.89
+* Status = Gizi Lebih
+
+======================================================================
+4. BMI MENURUT UMUR (BMI/U)
+===========================
+
+Fungsi:
+Menentukan status obesitas atau wasting berdasarkan BMI anak menurut usia.
+
+---
+
+## Contoh Kasus
+
+Jenis Kelamin : Perempuan
+Umur          : 24 bulan
+Berat Badan   : 12 kg
+Tinggi Badan  : 75 cm
+
+---
+
+## Langkah 1 — Menghitung BMI
+
+Rumus BMI:
+
 BMI = \frac{12}{0.75^2}
-```
 
 Hasil:
 
-```math id="l8rll0"
-BMI = 21.33
-```
+BMI \approx 21.33
 
 ---
 
-# 12. Langkah 3 — Referensi LMS WHO
+## Data Referensi WHO
 
-Contoh Dataset WHO BMI/U:
+Usia 24 bulan (Perempuan):
 
-| Umur | L       | M      | S       |
-| ---- | ------- | ------ | ------- |
-| 24   | -0.3833 | 16.423 | 0.08592 |
+* Median BMI = 16.0
+* SD BMI      = 1.5
 
 ---
 
-# 13. Langkah 4 — Perhitungan LMS
+## Langkah 2 — Menghitung Z-score BMI/U
 
 Rumus:
 
-```math id="f8x0v9"
-Z = \frac{\left(\frac{X}{M}\right)^L - 1}{L \times S}
-```
-
-Substitusi:
-
-```math id="ed7exm"
-Z = \frac{\left(\frac{21.33}{16.423}\right)^{-0.3833} - 1}{-0.3833 \times 0.08592}
-```
+Z = \frac{21.33 - 16.0}{1.5}
 
 Hasil:
 
-```text id="qaqgvi"
-Z ≈ 3.52
-```
+Z \approx 3.55
 
 ---
 
-# 14. Hasil Akhir Antropometri
+## Interpretasi
 
-| Indikator | Z-Score | Klasifikasi   |
-| --------- | ------- | ------------- |
-| BB/PB     | 2.86    | Gizi Lebih    |
-| BB/U      | 0.36    | Normal        |
-| PB/U      | -3.53   | Sangat Pendek |
-| BMI/U     | 3.52    | Obesitas      |
+| Rentang Z-Score   | Status            |
+| ----------------- | ----------------- |
+| < -3 SD           | Gizi Buruk        |
+| -3 SD s/d < -2 SD | Gizi Kurang       |
+| -2 SD s/d +1 SD   | Normal            |
+| +1 SD s/d +2 SD   | Risiko Gizi Lebih |
+| +2 SD s/d +3 SD   | Gizi Lebih        |
+| > +3 SD           | Obesitas          |
 
----
+Hasil:
 
-# 15. Pentingnya WHO LMS
+* Z-score ≈ 3.55
+* Status = Obesitas
 
-Metode LMS WHO memberikan:
+======================================================================
+KESIMPULAN HASIL ANTROPOMETRI
+=============================
 
-* distribusi pertumbuhan non-linear,
-* deteksi obesitas lebih akurat,
-* deteksi stunting lebih akurat,
-* kompatibilitas dengan WHO Anthro.
+| Indikator        | Z-Score | Status        |
+| ---------------- | ------- | ------------- |
+| BB/U             | -2.0    | Normal        |
+| PB/U atau TB/U   | -3.61   | Sangat Pendek |
+| BB/PB atau BB/TB | 2.89    | Gizi Lebih    |
+| BMI/U            | 3.55    | Obesitas      |
 
-Interpolasi SD sederhana sering menghasilkan kesalahan pada kasus ekstrem.
+Kesimpulan:
 
----
-
-# 16. Struktur Dataset
-
-```text id="c73mh8"
-dataset/
-├── boys/
-│   ├── wfa.csv
-│   ├── lfa.csv
-│   ├── wfl.csv
-│   └── bmifa.csv
-│
-├── girls/
-│   ├── wfa.csv
-│   ├── lfa.csv
-│   ├── wfl.csv
-│   └── bmifa.csv
-```
-
----
-
-# 17. Contoh Dataset
-
-## girls/bmifa.csv
-
-```csv id="2wbk33"
-age,L,M,S
-24,-0.3833,16.423,0.08592
-25,-0.3833,16.353,0.08584
-```
-
----
-
-# 18. Instalasi
-
-Install library yang dibutuhkan:
-
-```bash id="3hzn2m"
-pip install PySide6 pandas
-```
-
----
-
-# 19. Menjalankan Program
-
-```bash id="ybf29m"
-python main.py
-```
-
----
-
-# 20. Fitur Aplikasi
-
-## Fitur Saat Ini
-
-* Perhitungan WHO LMS
-* Offline Mode
-* GUI Interface
-* Perhitungan BMI
-* BB/U
-* PB/U atau TB/U
-* BB/PB atau BB/TB
-* BMI/U
-* Klasifikasi WHO Z-score
-
----
-
-# 21. Pengembangan Selanjutnya
-
-Rencana pengembangan berikutnya:
-
-* Export PDF
-* Grafik Pertumbuhan
-* Database SQLite
-* Versi Android
-* Integrasi Posyandu
-* Multi-language Support
-* Visualisasi Grafik WHO
-
----
-
-# 22. Kesimpulan
-
-STUNGUARD berhasil mengimplementasikan standar antropometri WHO LMS untuk anak usia 0–60 bulan.
-
-Aplikasi menyediakan:
-
-* perhitungan Z-score kompatibel WHO,
-* klasifikasi status gizi,
-* skrining stunting,
-* skrining obesitas,
-* pemeriksaan antropometri offline.
-
-Metode LMS menghasilkan perhitungan lebih akurat dibandingkan interpolasi SD sederhana karena standar pertumbuhan WHO bersifat non-linear.
-
----
-
-# 23. Referensi
-
-1. World Health Organization (WHO). WHO Child Growth Standards.
-2. WHO Anthro Software Manual.
-3. Kementerian Kesehatan Republik Indonesia.
-4. PMK No. 2 Tahun 2020 tentang Standar Antropometri Anak.
-5. WHO Training Course on Child Growth Assessment.
-
-```
-```
+* Anak mengalami stunting berat berdasarkan tinggi badan menurut umur.
+* Berat badan terhadap tinggi badan tergolong berlebih.
+* BMI menunjukkan risiko obesitas.
+* Kasus ini menunjukkan kondisi stunted obesity, yaitu anak pendek tetapi memiliki berat badan berlebih.
