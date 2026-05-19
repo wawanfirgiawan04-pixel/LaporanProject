@@ -1,8 +1,6 @@
 # STUNGUARD
 ## Aplikasi Kalkulator Antropometri Anak Berbasis WHO dan Kemenkes RI
 
-======================================================================
-
 STUNGUARD merupakan aplikasi antropometri offline yang digunakan untuk menghitung status gizi dan pertumbuhan anak usia 0–60 bulan berdasarkan standar WHO Child Growth Standards dan Kementerian Kesehatan Republik Indonesia (PMK No. 2 Tahun 2020).
 
 Aplikasi ini mendukung pemeriksaan:
