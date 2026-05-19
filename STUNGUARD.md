@@ -1,6 +1,4 @@
-======================================================================
-STANDAR KEMENTERIAN KESEHATAN REPUBLIK INDONESIA
-================================================
+### STANDAR KEMENTERIAN KESEHATAN REPUBLIK INDONESIA
 
 Penilaian status gizi anak pada aplikasi STUNGUARD menggunakan acuan:
 
@@ -11,10 +9,8 @@ Standar Antropometri Anak
 
 Standar ini mengadopsi WHO Child Growth Standards untuk anak usia 0–60 bulan.
 
-======================================================================
 KATEGORI DAN AMBANG BATAS STATUS GIZI ANAK
 (BERDASARKAN PMK NO. 2 TAHUN 2020)
-==================================
 
 1. BERAT BADAN MENURUT UMUR (BB/U)
 
@@ -70,9 +66,7 @@ KATEGORI DAN AMBANG BATAS STATUS GIZI ANAK
 | +2 SD sampai +3 SD   | Gizi Lebih        |
 | > +3 SD              | Obesitas          |
 
-======================================================================
 CONTOH DATA STANDAR ANTROPOMETRI KEMENKES
-=========================================
 
 1. BERAT BADAN MENURUT UMUR (BB/U)
    ANAK LAKI-LAKI USIA 24 BULAN
@@ -140,9 +134,7 @@ CONTOH DATA STANDAR ANTROPOMETRI KEMENKES
 | +2 SD     | 21.9  |
 | +3 SD     | 24.8  |
 
-======================================================================
 CONTOH PERHITUNGAN MANUAL KEMENKES
-==================================
 
 ## KASUS:
 
@@ -153,10 +145,7 @@ CONTOH PERHITUNGAN MANUAL KEMENKES
 | Berat Badan   | 12 kg     |
 | Tinggi Badan  | 75 cm     |
 
-======================================================================
-
 1. BERAT BADAN MENURUT UMUR (BB/U)
-   ======================================================================
 
 Data Kemenkes:
 
@@ -175,9 +164,7 @@ Interpretasi:
 
 * Status = Normal
 
-======================================================================
 2. TINGGI BADAN MENURUT UMUR (TB/U)
-===================================
 
 Data Kemenkes:
 
@@ -196,9 +183,7 @@ Interpretasi:
 
 * Status = Sangat Pendek (Severely Stunted)
 
-======================================================================
-3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
-===========================================
+#### 3. BERAT BADAN MENURUT TINGGI BADAN (BB/TB)
 
 Data Kemenkes:
 
@@ -217,9 +202,7 @@ Interpretasi:
 
 * Status = Gizi Lebih
 
-======================================================================
-4. BMI MENURUT UMUR (BMI/U)
-===========================
+#### 4. BMI MENURUT UMUR (BMI/U)
 
 Langkah 1 — Menghitung BMI
 
@@ -250,9 +233,7 @@ Interpretasi:
 
 * Status = Obesitas
 
-======================================================================
-KESIMPULAN AKHIR STATUS GIZI
-============================
+#### KESIMPULAN AKHIR STATUS GIZI
 
 | Indikator | Z-Score | Status        |
 | --------- | ------- | ------------- |
@@ -266,7 +247,7 @@ Kesimpulan:
 * Berat badan relatif berlebih terhadap tinggi badan.
 * BMI menunjukkan obesitas.
 * Kondisi ini dapat dikategorikan sebagai stunted obesity, yaitu anak pendek tetapi mengalami berat badan berlebih.
-=================================================================================================================================
+=================================================
 
 STUNGUARD menggunakan metode Z-Score WHO untuk menentukan status gizi anak berdasarkan perbandingan hasil pengukuran dengan standar antropometri WHO.
 
@@ -280,10 +261,7 @@ Keterangan:
 * Median Referensi = nilai median standar WHO
 * Simpangan Baku Referensi = standar deviasi WHO
 
-======================================================================
-
-1. BERAT BADAN MENURUT UMUR (BB/U)
-   ======================================================================
+#### 1. BERAT BADAN MENURUT UMUR (BB/U)
 
 Fungsi:
 Menentukan status berat badan anak berdasarkan usia.
