@@ -222,27 +222,7 @@ Nilai rata-rata **3.25** menunjukkan bahwa responden cenderung berada pada kateg
 
 ---
 
-## 12. Rekomendasi Penggunaan Data di SPSS
-
-Agar analisis berjalan dengan baik, data dapat digunakan dengan tahapan berikut:
-
-1. **Impor data Excel ke SPSS**
-2. **Atur Variable View**
-   - Kolom identitas seperti NAMA dan NIM diatur sebagai string.
-   - Kolom item seperti KMS1 sampai SA4 diatur sebagai numeric.
-   - Kolom mean diatur sebagai scale.
-3. **Lakukan uji validitas**
-   - Gunakan item pertanyaan setiap variabel.
-4. **Lakukan uji reliabilitas**
-   - Gunakan item pertanyaan dalam satu variabel yang sama.
-5. **Lakukan statistik deskriptif**
-   - Gunakan item dan kolom mean.
-6. **Lakukan analisis lanjutan**
-   - Gunakan kolom mean untuk korelasi atau regresi.
-
----
-
-## 13. Kesimpulan
+## 12. Kesimpulan
 
 Data tabulasi ini merupakan data kuesioner yang telah disusun dalam format yang rapi dan siap digunakan untuk pengujian SPSS.
 
