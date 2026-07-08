@@ -1,0 +1,149 @@
+Data yang saya berikan adalah **data tabulasi kuesioner yang sudah disusun agar siap digunakan untuk pengujian di SPSS**. Artinya, jawaban responden dari Google Form/Excel awal sudah diubah menjadi format **baris = responden** dan **kolom = variabel/item pertanyaan**.
+
+## 1. Struktur utama data
+
+Setiap baris pada data mewakili **1 responden**.
+
+Contohnya:
+
+| NO | TANGGAL     | NAMA           | NIM | KMS1         | KMS2         | ... | SA4          |
+| -- | ----------- | -------------- | --- | ------------ | ------------ | --- | ------------ |
+| 1  | tanggal isi | nama responden | NIM | skor jawaban | skor jawaban | ... | skor jawaban |
+
+Jadi, apabila ada **31 responden**, maka data akan memiliki **31 baris data responden**.
+
+## 2. Identitas responden
+
+Kolom awal berisi identitas dasar:
+
+| Kolom       | Keterangan                          |
+| ----------- | ----------------------------------- |
+| **NO**      | Nomor urut responden                |
+| **TANGGAL** | Tanggal responden mengisi kuesioner |
+| **NAMA**    | Nama responden                      |
+| **NIM**     | Nomor Induk Mahasiswa               |
+
+Kolom ini bersifat **identitas**, bukan variabel utama untuk analisis statistik.
+
+## 3. Kolom item pertanyaan
+
+Kolom seperti berikut:
+
+**KMS1, KMS2, KMS3, KMS4**
+**KPP1, KPP2, KPP3, KPP4**
+**MS1, MS2, MS3, MS4**
+**EP1, EP2, EP3, EP4**
+**PP1, PP2, PP3, PP4**
+**KT1, KT2, KT3, KT4**
+**PK1, PK2, PK3, PK4**
+**SA1, SA2, SA3, SA4**
+
+adalah **item pertanyaan kuesioner**.
+
+Misalnya:
+
+| Kode     | Makna                                |
+| -------- | ------------------------------------ |
+| **KMS1** | Pertanyaan pertama pada variabel KMS |
+| **KMS2** | Pertanyaan kedua pada variabel KMS   |
+| **KMS3** | Pertanyaan ketiga pada variabel KMS  |
+| **KMS4** | Pertanyaan keempat pada variabel KMS |
+
+Begitu juga dengan KPP, MS, EP, PP, KT, PK, dan SA.
+
+## 4. Skala jawaban
+
+Data item biasanya menggunakan **skala Likert**, misalnya:
+
+| Skor | Keterangan          |
+| ---- | ------------------- |
+| 1    | Sangat Tidak Setuju |
+| 2    | Tidak Setuju        |
+| 3    | Netral              |
+| 4    | Setuju              |
+| 5    | Sangat Setuju       |
+
+Jadi, apabila pada kolom **KMS1** tertulis angka **4**, artinya responden menjawab **Setuju** pada pertanyaan KMS1.
+
+## 5. Kolom rata-rata variabel
+
+Kolom seperti:
+
+**KMS_MEAN, KPP_MEAN, MS_MEAN, EP_MEAN, PP_MEAN, KT_MEAN, PK_MEAN, SA_MEAN**
+
+adalah **nilai rata-rata dari masing-masing variabel**.
+
+Contoh:
+
+**KMS_MEAN** dihitung dari:
+
+[
+KMS_MEAN = \frac{KMS1 + KMS2 + KMS3 + KMS4}{4}
+]
+
+Artinya, jika seorang responden menjawab:
+
+| KMS1 | KMS2 | KMS3 | KMS4 |
+| ---- | ---- | ---- | ---- |
+| 4    | 5    | 4    | 4    |
+
+Maka:
+
+[
+KMS_MEAN = \frac{4+5+4+4}{4} = 4.25
+]
+
+Jadi nilai **KMS_MEAN = 4.25**.
+
+## 6. Kolom TOTAL_MEAN
+
+Kolom **TOTAL_MEAN** adalah rata-rata keseluruhan dari semua item atau semua variabel.
+
+Fungsinya untuk mengetahui **nilai rata-rata umum jawaban responden** terhadap seluruh pertanyaan.
+
+Contoh sederhana:
+
+[
+TOTAL_MEAN = \frac{KMS_MEAN + KPP_MEAN + MS_MEAN + EP_MEAN + PP_MEAN + KT_MEAN + PK_MEAN + SA_MEAN}{8}
+]
+
+Kolom ini dapat digunakan untuk melihat kecenderungan umum responden.
+
+## 7. Fungsi data untuk SPSS
+
+Data ini dapat digunakan untuk beberapa pengujian, seperti:
+
+| Jenis Uji                | Kolom yang Digunakan                                       |
+| ------------------------ | ---------------------------------------------------------- |
+| **Uji validitas**        | Item pertanyaan, misalnya KMS1–KMS4                        |
+| **Uji reliabilitas**     | Item dalam setiap variabel, misalnya KMS1–KMS4             |
+| **Statistik deskriptif** | Semua item atau kolom MEAN                                 |
+| **Uji korelasi**         | Kolom rata-rata variabel, misalnya KMS_MEAN dengan SA_MEAN |
+| **Uji regresi**          | Variabel independen dan dependen dalam bentuk MEAN         |
+| **Uji normalitas**       | Biasanya menggunakan kolom MEAN atau residual regresi      |
+
+## 8. Perbedaan item dan mean
+
+Perbedaannya seperti ini:
+
+| Jenis Kolom       | Contoh                 | Fungsi                                           |
+| ----------------- | ---------------------- | ------------------------------------------------ |
+| **Item**          | KMS1, KMS2, KMS3, KMS4 | Untuk uji validitas dan reliabilitas             |
+| **Mean variabel** | KMS_MEAN               | Untuk analisis lanjutan seperti korelasi/regresi |
+| **Total mean**    | TOTAL_MEAN             | Untuk melihat rata-rata keseluruhan              |
+
+## 9. Cara membaca data
+
+Misalnya satu responden memiliki data seperti ini:
+
+| KMS1 | KMS2 | KMS3 | KMS4 | KMS_MEAN |
+| ---- | ---- | ---- | ---- | -------- |
+| 5    | 4    | 4    | 5    | 4.50     |
+
+Artinya, responden tersebut memberikan jawaban tinggi terhadap variabel **KMS**, karena rata-ratanya **4.50** dari skala 1–5.
+
+Semakin tinggi nilai mean, semakin tinggi tingkat persetujuan responden terhadap variabel tersebut.
+
+## 10. Kesimpulan
+
+Jadi, data yang saya berikan adalah **data kuesioner yang sudah dikodekan dan dirapikan untuk kebutuhan analisis SPSS**. Kolom **KMS1 sampai SA4** adalah item pertanyaan, sedangkan kolom **KMS_MEAN sampai SA_MEAN** adalah skor rata-rata setiap variabel. Data ini sudah bisa digunakan untuk uji validitas, reliabilitas, statistik deskriptif, korelasi, dan regresi sesuai kebutuhan penelitian.
